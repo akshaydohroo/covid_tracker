@@ -1,0 +1,122 @@
+*{
+    color: white;
+}
+html{
+    height: 100%;
+}
+body{
+    background-color: rgba(40,42,47,255);
+    min-height: 100%;
+}
+@media (min-width: 992px) {
+    .app_navbar>nav{
+        flex-direction: column !important;
+        display: flex;
+        height: 100vh;
+        align-items: center !important;
+       
+    }
+    .navItems{
+        display: flex;
+        flex-direction: column !important;
+
+    }
+    .navItems>li{
+        margin-bottom: 30px;
+    }
+    .app_wrapper{
+        display: flex;
+        flex-direction: row !important;
+    }
+    .app_map{
+        width:65vw;
+    }
+    
+}
+
+
+.app_wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.app_navbar{
+    font-size: x-large;
+}
+.app_navbar a{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.app_map{
+    display: flex;
+    flex-direction: column;
+}
+.global_case_wrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.global_case_wrapper span{
+    font-size: clamp(14px,3vw,18px);
+    margin: 2px;
+}
+.global_case_wrapper small{
+    font-size: small;
+}
+.global_infected::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: x-large;
+    content: "\f780";
+    position: relative;
+    right: 20px;
+    top: 20px;
+    padding: 3%;
+    background-color: #ba3131;
+}.global_active::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: x-large;
+    content: "\e074";
+    position: relative;
+    right: 20px;
+    top: 20px;
+    padding: 3%;
+    background-color: #f6c879;
+}.global_deaths::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: x-large;
+    content: "\f714";
+    position: relative;
+    right: 20px;
+    top: 20px;
+    padding: 3%;
+    background-color: #4f4e53;
+}.global_recovered::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: x-large;
+    content: "\f067";
+    position: relative;
+    right: 20px;
+    top: 20px;
+    padding: 3%;
+    background-color: #5cc1ac;
+}.global_countries::before{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: x-large;
+    content: "\f024";
+    position: relative;
+    right: 20px;
+    top: 20px;
+    padding: 3%;
+    background-color: #8c79f6;
+}
+
+.global_case_wrapper>span>span{
+    position: relative;
+    left: 27px;
+}
