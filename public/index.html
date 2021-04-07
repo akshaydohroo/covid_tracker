@@ -30,6 +30,13 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script>
+    <!-- MapBox Api -->
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script defer src="app.js"></script>
   </head>
@@ -65,19 +72,49 @@
         </nav>
       </div>
       <div class="app_map">
-
         <h2 class="display-4 ms-2">Coronavirus Tracker</h2>
-        <br>
-        <small class="text-center">Global Cases</small>
+        <br />
+        <small class="text-center pt-2">Global Cases</small>
 
         <div class="global_case_wrapper row mx-3">
-          <span class="global_infected col"><small class="text-muted">Infected</small><br><span>234545</span></span>
-          <span class="global_active col"><small class="text-muted">Active</small><br><span>234545</span></span>
-          <span class="global_deaths col"><small class="text-muted">Deaths</small><br><span>234545</span></span>
-          <span class="global_recovered col"><small class="text-muted">Recovered</small><br><span>234545</span></span>
-          <span class="global_countries col"><small class="text-muted">Countries</small><br><span>234545</span></span>
+          <span class="global_infected"
+            ><small class="text-muted">Infected</small><br /><span
+              >234545</span
+            ></span
+          >
+          <span class="global_active"
+            ><small class="text-muted">Active</small><br /><span
+              >234545</span
+            ></span
+          >
+          <span class="global_deaths"
+            ><small class="text-muted">Deaths</small><br /><span
+              >234545</span
+            ></span
+          >
+          <span class="global_recovered"
+            ><small class="text-muted">Recovered</small><br /><span
+              >234545</span
+            ></span
+          >
+          <span class="global_countries"
+            ><small class="text-muted">Countries</small><br /><span
+              >234545</span
+            ></span
+          >
         </div>
-
+        <div id="menu" class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
+          <!-- See a list of Mapbox-hosted public styles at -->
+          <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
+          <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" class="btn-check">
+          <label for="outdoors-v11" class="btn btn-outline-primary">outdoors</label>
+          <input id="light-v10" type="radio" name="rtoggle" value="light" class="btn-check">
+          <label for="light-v10" class="btn btn-outline-primary">light</label>
+          <input id="dark-v10" type="radio" name="rtoggle" value="dark" checked class="btn-check">
+          <label for="dark-v10" class="btn btn-outline-primary">dark</label>
+          </div>
+        <div id='map'></div>
+        
       </div>
     </div>
   </body>

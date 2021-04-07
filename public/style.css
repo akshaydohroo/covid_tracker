@@ -12,7 +12,7 @@ body{
     .app_navbar>nav{
         flex-direction: column !important;
         display: flex;
-        height: 100vh;
+        min-height: 100%;
         align-items: center !important;
        
     }
@@ -30,6 +30,9 @@ body{
     }
     .app_map{
         width:65vw;
+    }
+    .app_map{
+        padding-left: 0 !important;
     }
     
 }
@@ -54,12 +57,15 @@ body{
 }
 .global_case_wrapper{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
+    position: relative;
+    top: 5%;
 }
 .global_case_wrapper span{
     font-size: clamp(14px,3vw,18px);
-    margin: 2px;
+    min-width: 115px;
+    width: 18%;
 }
 .global_case_wrapper small{
     font-size: small;
@@ -119,4 +125,21 @@ body{
 .global_case_wrapper>span>span{
     position: relative;
     left: 27px;
+}
+#menu {
+    align-self: flex-end;
+    position: relative;
+    top: 16%;
+    z-index: 5;
+    }
+#map{
+    height: 100%;
+    width: 100%;
+    margin: 3px;
+    position: relative;
+}
+.app_map{
+    padding: 5px;
+    height: clamp(100px,100vh,1200px);
+    position: relative;
 }
