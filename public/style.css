@@ -1,6 +1,4 @@
-*{
-    color: white;
-}
+
 html{
     height: 100%;
 }
@@ -59,8 +57,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    position: relative;
-    top: 5%;
+    color: white;
 }
 .global_case_wrapper span{
     font-size: clamp(14px,3vw,18px);
@@ -127,9 +124,7 @@ body{
     left: 27px;
 }
 #menu {
-    align-self: flex-end;
-    position: relative;
-    top: 16%;
+    float: right;
     z-index: 5;
     }
 #map{
@@ -139,7 +134,14 @@ body{
     position: relative;
 }
 .app_map{
-    padding: 5px;
+    padding-left: 5px;
     height: clamp(100px,100vh,1200px);
     position: relative;
 }
+.marker {
+    background-color: red;
+    border-radius: 50%;
+    background-size: cover;
+    cursor: pointer;
+
+    }
