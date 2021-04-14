@@ -199,3 +199,10 @@ body {
   color: white;
   cursor: pointer;
 }
+.loader{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    height: 2em;
+    width: 2em;
+}
