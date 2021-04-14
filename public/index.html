@@ -37,14 +37,51 @@
       href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script defer src="app.js"></script>
   </head>
+  <div
+    class="spinner-border text-primary loader position-absolute top-50 start-50"
+    role="status"
+    style="width: 5em; height: 5em"
+  >
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="modal err_box" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <body>
     <div class="app_wrapper">
       <div class="app_navbar">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="https://covid19.who.int/"
+            ><i class="fas fa-shield-virus who_covid"></i
+          ></a>
           <button
             class="navbar-toggler"
             type="button"
@@ -59,13 +96,23 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav navItems">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="#"
+                  ><i class="fas fa-home home"></i
+                ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
+                <a
+                  class="nav-link"
+                  href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/covid-19-vaccines"
+                  ><i class="fas fa-syringe who_vaccine"></i
+                ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a
+                  class="nav-link"
+                  href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/media-resources/news"
+                  ><i class="far fa-newspaper who_news"></i
+                ></a>
               </li>
             </ul>
           </div>
@@ -82,7 +129,7 @@
               >234545</span
             ></span
           >
-          <span class="global_active" 
+          <span class="global_active"
             ><small class="text-muted">Active</small><br /><span
               >234545</span
             ></span
@@ -103,23 +150,118 @@
             ></span
           >
         </div>
-        
-        <div id='map'>
-          <div id="menu" class="btn-group-vertical btn-group-sm" role="group" aria-label="Basic checkbox toggle button group">
+
+        <div id="map">
+          <div
+            id="menu"
+            class="btn-group-vertical btn-group-sm"
+            role="group"
+            aria-label="Basic checkbox toggle button group"
+          >
             <!-- See a list of Mapbox-hosted public styles at -->
             <!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles -->
-            
-            <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" class="btn-check">
-            <label for="outdoors-v11" class="btn btn-outline-primary">outdoors</label>
-            <input id="light-v10" type="radio" name="rtoggle" value="light" class="btn-check">
+
+            <input
+              id="outdoors-v11"
+              type="radio"
+              name="rtoggle"
+              value="outdoors"
+              class="btn-check"
+            />
+            <label for="outdoors-v11" class="btn btn-outline-primary"
+              >outdoors</label
+            >
+            <input
+              id="light-v10"
+              type="radio"
+              name="rtoggle"
+              value="light"
+              class="btn-check"
+            />
             <label for="light-v10" class="btn btn-outline-primary">light</label>
-            <input id="dark-v10" type="radio" name="rtoggle" value="dark" checked class="btn-check">
+            <input
+              id="dark-v10"
+              type="radio"
+              name="rtoggle"
+              value="dark"
+              checked
+              class="btn-check"
+            />
             <label for="dark-v10" class="btn btn-outline-primary">dark</label>
-            </div>
-            
+          </div>
         </div>
-      
-        
+      </div>
+      <div class="info_bar bg-dark">
+        <h3 class="display-6 text-info mt-5 align-self-center">Cases Info</h3>
+        <div
+          class="btn-toolbar date_toolbar"
+          role="toolbar"
+          aria-label="Toolbar with button groups"
+        >
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-primary">1</button>
+            <button type="button" class="btn btn-primary">2</button>
+            <button type="button" class="btn btn-primary">3</button>
+            <button type="button" class="btn btn-primary">4</button>
+            <button type="button" class="btn btn-primary">5</button>
+            <button type="button" class="btn btn-primary">6</button>
+            <button type="button" class="btn btn-primary">7</button>
+          </div>
+        </div>
+        <div
+          class="btn-group ms-2 me-2 type_covid_data"
+          role="group"
+          aria-label="Basic radio toggle button group"
+        >
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio1"
+            autocomplete="off"
+            checked
+            value="total_cases"
+          />
+          <label class="btn btn-outline-primary" for="btnradio1"
+            >Total cases</label
+          >
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio2"
+            autocomplete="off"
+            value="total_deaths"
+          />
+          <label class="btn btn-outline-primary" for="btnradio2"
+            >Total Deaths</label
+          >
+
+          <input
+            type="radio"
+            class="btn-check"
+            name="btnradio"
+            id="btnradio3"
+            autocomplete="off"
+            value="new_cases"
+          />
+          <label class="btn btn-outline-primary" for="btnradio3"
+            >New Cases</label
+          >
+        </div>
+        <ul class="list-group covid_top_countries">
+          <li class="list-group-item list-group-item-dark">An item</li>
+          <li class="list-group-item list-group-item-dark">A second item</li>
+          <li class="list-group-item list-group-item-dark">A third item</li>
+          <li class="list-group-item list-group-item-dark">A fourth item</li>
+          <li class="list-group-item list-group-item-dark">A fifth item</li>
+          <li class="list-group-item list-group-item-dark">A sixth item</li>
+          <li class="list-group-item list-group-item-dark">A seventh item</li>
+        </ul>
+        <div class="chart_container">
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
       </div>
     </div>
   </body>

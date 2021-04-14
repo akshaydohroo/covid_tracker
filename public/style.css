@@ -1,147 +1,201 @@
-
-html{
-    height: 100%;
+html {
+  height: 100%;
 }
-body{
-    background-color: rgba(40,42,47,255);
-    min-height: 100%;
+body {
+  background-color: rgba(35, 36, 41, 255);
+  min-height: 100%;
 }
 @media (min-width: 992px) {
-    .app_navbar>nav{
-        flex-direction: column !important;
-        display: flex;
-        min-height: 100%;
-        align-items: center !important;
-       
-    }
-    .navItems{
-        display: flex;
-        flex-direction: column !important;
-
-    }
-    .navItems>li{
-        margin-bottom: 30px;
-    }
-    .app_wrapper{
-        display: flex;
-        flex-direction: row !important;
-    }
-    .app_map{
-        width:65vw;
-    }
-    .app_map{
-        padding-left: 0 !important;
-    }
-    
-}
-
-
-.app_wrapper{
-    min-height: 100vh;
+  .app_navbar > nav {
+    flex-direction: column !important;
     display: flex;
-    flex-direction: column;
-    
-}
-.app_navbar{
-    font-size: x-large;
-}
-.app_navbar a{
-    margin-left: 2%;
-    margin-right: 2%;
-}
-.app_map{
+    min-height: 100%;
+    align-items: center !important;
+  }
+  .navItems {
     display: flex;
-    flex-direction: column;
-}
-.global_case_wrapper{
+    flex-direction: column !important;
+  }
+  .navItems > li {
+    margin-bottom: 30px;
+  }
+  .app_wrapper {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    color: white;
+    flex-direction: row !important;
+  }
+  .app_map {
+    width: 65vw;
+  }
+  .app_map {
+    padding-left: 0 !important;
+  }
+  #map {
+    width: 100% !important;
+  }
+  .chart_container {
+    height: clamp(180px, 40vh, 700px) !important;
+  }
 }
-.global_case_wrapper span{
-    font-size: clamp(14px,3vw,18px);
-    min-width: 115px;
-    width: 18%;
+@media (max-width: 992px) {
+  .app_map {
+    height: clamp(100px, 100vh, 1200px);
+  }
+  .who_covid::after {
+    margin-left: 1rem;
+    content: "World Health Org";
+  }
+  .home::after {
+    margin-left: 1rem;
+    content: "Home";
+  }
+  .who_vaccine::after {
+    margin-left: 1rem;
+    content: "Vaccine";
+  }
+  .who_news::after {
+    margin-left: 1rem;
+    content: "News";
+  }
 }
-.global_case_wrapper small{
-    font-size: small;
+.app_wrapper {
+  min-height: 100vh;
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  overflow: scroll;
 }
-.global_infected::before{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: x-large;
-    content: "\f780";
-    position: relative;
-    right: 20px;
-    top: 20px;
-    padding: 3%;
-    background-color: #ba3131;
-}.global_active::before{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: x-large;
-    content: "\e074";
-    position: relative;
-    right: 20px;
-    top: 20px;
-    padding: 3%;
-    background-color: #f6c879;
-}.global_deaths::before{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: x-large;
-    content: "\f714";
-    position: relative;
-    right: 20px;
-    top: 20px;
-    padding: 3%;
-    background-color: #4f4e53;
-}.global_recovered::before{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: x-large;
-    content: "\f067";
-    position: relative;
-    right: 20px;
-    top: 20px;
-    padding: 3%;
-    background-color: #5cc1ac;
-}.global_countries::before{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: x-large;
-    content: "\f024";
-    position: relative;
-    right: 20px;
-    top: 20px;
-    padding: 3%;
-    background-color: #8c79f6;
+.app_navbar {
+  font-size: x-large;
+}
+.app_navbar a {
+  margin-left: 2%;
+  margin-right: 2%;
+  font-size: xx-large;
+}
+.app_navbar a:hover {
+  color: white !important;
+}
+.app_map {
+  display: flex;
+  flex-direction: column;
+}
+.global_case_wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  color: white;
+}
+.global_case_wrapper span {
+  font-size: clamp(14px, 3vw, 18px);
+  min-width: 130px;
+  width: 18%;
+}
+.global_case_wrapper small {
+  font-size: small;
+}
+.global_infected::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: x-large;
+  content: "\f780";
+  position: relative;
+  right: 20px;
+  top: 20px;
+  padding: 3%;
+  background-color: #ba3131;
+}
+.global_active::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: x-large;
+  content: "\e074";
+  position: relative;
+  right: 20px;
+  top: 20px;
+  padding: 3%;
+  background-color: #f6c879;
+}
+.global_deaths::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: x-large;
+  content: "\f714";
+  position: relative;
+  right: 20px;
+  top: 20px;
+  padding: 3%;
+  background-color: #4f4e53;
+}
+.global_recovered::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: x-large;
+  content: "\f067";
+  position: relative;
+  right: 20px;
+  top: 20px;
+  padding: 3%;
+  background-color: #5cc1ac;
+}
+.global_countries::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: x-large;
+  content: "\f024";
+  position: relative;
+  right: 20px;
+  top: 20px;
+  padding: 3%;
+  background-color: #8c79f6;
 }
 
-.global_case_wrapper>span>span{
-    position: relative;
-    left: 27px;
+.global_case_wrapper > span > span {
+  position: relative;
+  left: 27px;
 }
 #menu {
-    float: right;
-    z-index: 5;
-    }
-#map{
-    height: 100%;
-    width: 100%;
-    margin: 3px;
-    position: relative;
+  float: right;
+  z-index: 5;
 }
-.app_map{
-    padding-left: 5px;
-    height: clamp(100px,100vh,1200px);
-    position: relative;
+#map {
+  height: 100%;
+  width: 90%;
+  margin: 3px;
+  position: relative;
+  align-self: center;
+}
+.app_map {
+  padding-left: 5px;
+  position: relative;
 }
 .marker {
-    background-color: red;
-    border-radius: 50%;
-    background-size: cover;
-    cursor: pointer;
-
-    }
+  background-color: red;
+  border-radius: 50%;
+  background-size: cover;
+  cursor: pointer;
+}
+.info_bar {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chart_container {
+  position: relative;
+  height: clamp(180px, 60vh, 700px);
+  width: 95%;
+  background-color: rgba(35, 36, 41, 255);
+}
+.date_toolbar {
+  margin-bottom: 3%;
+}
+.covid_top_countries {
+  width: 80%;
+  margin: 5% 0;
+}
+.covid_top_countries > li {
+  border: none;
+  background-color: rgba(35, 36, 41, 255);
+  color: white;
+  cursor: pointer;
+}
